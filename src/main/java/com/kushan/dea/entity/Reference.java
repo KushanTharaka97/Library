@@ -31,16 +31,22 @@ public class Reference {
     @Column(name="Ref_category")
     private int Ref_Category;
 
+    @Column(name="Ravailable",columnDefinition="tinyint(1) default 1")
+    private boolean Refenencing_availability;
+
+    public Reference(String ref_Tittle, int ref_ISBN, String publisher, String author, int ref_Category,
+    boolean refenencing_availability) {
+            Ref_Tittle = ref_Tittle;
+            Ref_ISBN = ref_ISBN;
+            Publisher = publisher;
+            Author = author;
+            Ref_Category = ref_Category;
+            Refenencing_availability = refenencing_availability;
+            }
+
+
     protected Reference(){
 
-    }
-
-    public Reference(String ref_Tittle, int ref_ISBN, String publisher, String author, int category) {
-        Ref_Tittle = ref_Tittle;
-        Ref_ISBN = ref_ISBN;
-        Publisher = publisher;
-        Author = author;
-        Ref_Category = category;
     }
 
     public String getRef_Tittle() {
@@ -73,6 +79,15 @@ public class Reference {
     public void setRef_Category(int category) {
         Ref_Category = category;
     }
+
+    public boolean isRefenencing_availability() {
+        return Refenencing_availability;
+    }
+
+    public void setRefenencing_availability(boolean refenencing_availability) {
+        Refenencing_availability = refenencing_availability;
+    }
+
    
 
 
