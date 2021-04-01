@@ -1,10 +1,12 @@
 package com.kushan.dea.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Lending {
    
     @Id
@@ -27,16 +29,23 @@ public class Lending {
     @Column(name="Lending_category")
     private int Lending_Category;
 
+    @Column(name="Lavailable",columnDefinition="tinyint(1) default 1")
+    private boolean Lending_availability;
+
     protected Lending(){
 
     }
 
-    public Lending(String lending_Tittle, int lending_ISBN, String publisher, String author, int lending_Category) {
+  
+
+    public Lending(String lending_Tittle, int lending_ISBN, String publisher, String author, int lending_Category,
+            boolean lending_availability) {
         Lending_Tittle = lending_Tittle;
         Lending_ISBN = lending_ISBN;
         Publisher = publisher;
         Author = author;
         Lending_Category = lending_Category;
+        Lending_availability = lending_availability;
     }
 
     public String getLending_Tittle() {
@@ -78,6 +87,16 @@ public class Lending {
     public void setLending_Category(int lending_Category) {
         Lending_Category = lending_Category;
     }
+
+    public boolean isLending_availability() {
+        return Lending_availability;
+    }
+
+    public void setLending_availability(boolean lending_availability) {
+        Lending_availability = lending_availability;
+    }
+
+
     
     
 }
